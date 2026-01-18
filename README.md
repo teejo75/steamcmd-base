@@ -34,3 +34,5 @@ The `steamcmd.sh` can be found in the following directory: `/home/steam/steamcmd
 
 This image's default user is `root`, but SteamCMD is installed as the `steam` user. You should execute SteamCMD and your game service as the `steam` user. The gosu package is installed by default.
 _Note: Running the `steamcmd.sh` as `root` will fail because the owner is the user `steam`, either swap the active user using `su steam` or use chown to change the ownership of the directory._
+
+This image is also available via ghcr.io/teejo75/steamcmd-base
