@@ -41,6 +41,8 @@ jobs:
             teejo75/steamcmd-base:latest
             ghcr.io/teejo75/steamcmd-base:latest
 
+      - uses: actions/checkout@v6.0.2
+
       - name: Update repo description
         uses: peter-evans/dockerhub-description@v5
         with:
