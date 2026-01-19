@@ -7,8 +7,10 @@ on:
       - 'Dockerfile'
   schedule:
     - cron: '00 1 1 * *'
+  workflow_dispatch:
+
 jobs:
-  build:
+  build-and-push:
     runs-on: ubuntu-latest
     steps:
       -
