@@ -52,4 +52,3 @@ RUN set -x \
 	&& apt-get clean -y && apt-get autopurge -y && rm -rf /var/lib/apt/lists/*
 
 WORKDIR ${STEAMCMDDIR}
-
