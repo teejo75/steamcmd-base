@@ -63,6 +63,6 @@ jobs:
           event-type: steamcmd-base-updated
           client-payload: |
             {
-              "image": "${{ needs.build-and-push.outputs.image }}"
+              "image": "${{ needs.build-and-push.outputs.image }}",
               "digest": "${{ needs.build-and-push.outputs.digest }}"
             }
