@@ -8,7 +8,9 @@ LABEL org.opencontainers.image.authors="teejo75"
 LABEL org.opencontainers.image.source="https://github.com/teejo75/steamcmd-base"
 LABEL org.opencontainers.image.description="Debian Stable SteamCMD base image"
 
-ARG DEBIAN_FRONTEND=noninteractive
+# Changed from ARG to ENV so will persist in derived images, don't see a need to override this at build time.
+ENV DEBIAN_FRONTEND=noninteractive
+
 ENV PUID=1000
 ENV GUID=1000
 ENV USER=steam
