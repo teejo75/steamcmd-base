@@ -50,8 +50,11 @@ jobs:
             teejo75/steamcmd-base:latest
             ghcr.io/teejo75/steamcmd-base:latest
   
-  internal-dispatch:
+  dispatch:
     needs: build-and-push
+    # strategy:
+    #   matrix:
+    #     repo: [ "other/repo", "another/repo" ]
     runs-on: ubuntu-latest
     steps:
       -
@@ -66,3 +69,16 @@ jobs:
               "imageid": "${{ needs.build-and-push.outputs.imageid }}",
               "digest": "${{ needs.build-and-push.outputs.digest }}"
             }
+      # -
+      #   name: Notify External Repositories
+      #   uses: peter-evans/repository-dispatch@v4.0.1
+      #   with:
+      #     token: ${{ secrets.PAT_PUBLIC_REPO }}
+      #     repository: ${{ matrix.repo }}
+      #     event-type: steamcmd-base-updated
+      #     client-payload: |
+      #       {
+      #         "imageid": "${{ needs.build-and-push.outputs.imageid }}",
+      #         "digest": "${{ needs.build-and-push.outputs.digest }}"
+      #       }
+  
