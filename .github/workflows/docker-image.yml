@@ -3,7 +3,10 @@ name: Docker Image CI
 on:
   push:
     branches: [ "main" ]
-
+    paths:
+      - 'Dockerfile'
+  schedule:
+    - cron: '00 1 1 * *'
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -40,13 +43,3 @@ jobs:
           tags: |
             teejo75/steamcmd-base:latest
             ghcr.io/teejo75/steamcmd-base:latest
-
-      - uses: actions/checkout@v6.0.2
-
-      - name: Update repo description
-        uses: peter-evans/dockerhub-description@v5
-        with:
-          username: ${{ secrets.DOCKERHUB_USERNAME }}
-          password: ${{ secrets.DOCKERHUB_TOKEN }}
-          repository: teejo75/steamcmd-base
-          short-description: ${{ github.event.repository.description }}

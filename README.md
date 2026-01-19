@@ -36,3 +36,5 @@ This image's default user is `root`, but SteamCMD is installed as the `steam` us
 _Note: Running the `steamcmd.sh` as `root` will fail because the owner is the user `steam`, either swap the active user using `su steam` or use chown to change the ownership of the directory._
 
 This image is also available via ghcr.io/teejo75/steamcmd-base
+
+The image will automatically update on the 1st day of the month to account for security updates.
