@@ -13,7 +13,7 @@ jobs:
   build-and-push:
     runs-on: ubuntu-latest
     outputs:
-      image: ${{ steps.bap.outputs.image }}
+      imageid: ${{ steps.bap.outputs.imageid }}
       digest: ${{ steps.bap.outputs.digest }}
     steps:
       -
@@ -63,6 +63,6 @@ jobs:
           event-type: steamcmd-base-updated
           client-payload: |
             {
-              "image": "${{ needs.build-and-push.outputs.image }}",
+              "imageid": "${{ needs.build-and-push.outputs.imageid }}",
               "digest": "${{ needs.build-and-push.outputs.digest }}"
             }
